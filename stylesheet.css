@@ -1,52 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
 .calculator {
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 100px;
-    width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  box-shadow: 0px 2px 11px 1px;
+  border-radius: 20px;
+  background-color: #1d3e49;
+  z-index: 10;
 }
 
 .calculator-screen {
-    width: 100%;
-    height: 100px;
-    background-color: #252525;
-    color: #fff;
-    text-align: right;
-    font-size: 36px;
-    border: none;
-    padding: 0 20px;
-    box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  background-color: #1d3e49;
+  color: #faf8f6;
+  text-align: right;
+  font-size: 36px;
+  border: none;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border: 1px solid darkgray;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  box-shadow: 1px 3px 3px #1d3e49;
 }
 
 .calculator-keys {
-    width: 100%;
+  width: 100%;
 }
 
 .row {
-    display: flex;
+  display: flex;
 }
 
 button {
-    height: 80px;
-    background-color: gray;
-    border: 1px solid black;
-    font-size: 32px;
-    color: #fff;
-    width: 25%;
-    outline: none;
+  height: 80px;
+  background-color: #1d3e49;
+  border: 1px solid darkgray;
+  font-size: 32px;
+  color: #faf8f6;
+  width: 25%;
+  outline: none;
+  box-shadow: 1px 3px 3px #1d3e49;
 }
 
-.all-clear, .zero-btn {
-    width: 50%;
+button:active {
+  position: relative;
+  top: 2px;
+  background-color: #1d3e49;
+  box-shadow: none;
 }
 
-.operator, .equal-sign {
-    background-color: orange;
+.all-clear,
+.zero-btn {
+  width: 50%;
+}
+
+.all-clear {
+  color: #06a4c1;
+}
+
+.percentage {
+  color: #06a4c1;
+}
+
+.operator,
+.equal-sign {
+  background-color: #1d3e49;
+  color: #06a4c1;
+}
+
+.equal-sign {
+  border-bottom-right-radius: 20px;
+}
+
+.zero-btn {
+  border-bottom-left-radius: 20px;
 }
 
 button:hover {
-    background-color: darkgray;
+  background-color: #4cb6f0;
 }
 
-.operator:hover, .equal-sign:hover {
-    background-color: darkorange;
+.operator:hover,
+.equal-sign:hover,
+.all-clear:hover,
+.percentage:hover {
+  background-color: #4cb6f0;
+  color: #faf8f6;
+}
+
+/* animated background */
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+.header {
+  position: absolute;
+  text-align: center;
+  background: linear-gradient(100deg, #56ccf2 0%, #2f80ed 100%);
+  color: white;
+  width: 100%;
+}
+.logo {
+  width: 50px;
+  fill: #faf8f6;
+  padding-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height: 85vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  .content {
+    height: 30vh;
+  }
+  h1 {
+    font-size: 24px;
+  }
+}
+/* End Animated Background */
+
+/* Animated Character */
+canvas {
+  display: block;
+  position: relative;
 }
